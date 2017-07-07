@@ -9,3 +9,4 @@ Project was made by using:
 - Java as a programming language
 - webdrivermanager as an additional lib for setting and resolve browser issues
 - no additional wrappers is not used such as Selenide, etc.
+- testng as a testing framework

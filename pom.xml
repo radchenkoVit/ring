@@ -28,15 +28,6 @@
             <version>3.4.0</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok-maven -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok-maven</artifactId>
-            <version>1.16.16.0</version>
-            <type>pom</type>
-        </dependency>
-
-
         <!--use webdriver manager to simplify setup for browser-->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
