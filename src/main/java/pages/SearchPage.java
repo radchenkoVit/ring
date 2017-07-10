@@ -16,8 +16,11 @@ public class SearchPage extends YouTubePage {
     public MusicianPage goToChannel(){
         WebElement channel = find(channelButton);
         waitUntil(channelButton, visible);
-        click(channelButton, clickable);
-        if (!waitUntilDisappear(channel)) throw new RuntimeException("Channel button was not clicked");
+        for (int i = 0; i < 3; i++) {
+            click(channelButton, clickable);
+            if (!isPresent(channelButton)){click(channelButton);}
+        }
+        if (waitUntilDisappear(channel)) throw new RuntimeException("Channel button was not clicked"); // TODO: make better, quick fix
         return new MusicianPage();
     }
 }

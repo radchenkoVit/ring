@@ -54,6 +54,15 @@ public interface DriverExtension {
         return By.cssSelector(locator);
     }
 
+    default boolean isPresent(String locator){
+        try {
+            find(locator).isDisplayed();
+            return true;
+        } catch (NotFoundException e){
+            return false;
+        }
+    }
+
     default WebElement waitUntil(String locator, WaitCondition condition){
         return waitUntil(locator, condition, 10);
     }
