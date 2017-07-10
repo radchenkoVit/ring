@@ -23,7 +23,6 @@ public class PreAdVideoTest extends TestRunner {
         SearchPage searchPage = youTube
                 .open("https://www.youtube.com")
                 .search(musician);
-
         MusicianPage musicianPage = searchPage.goToChannel();
 
         VideoTab videoTab = musicianPage
