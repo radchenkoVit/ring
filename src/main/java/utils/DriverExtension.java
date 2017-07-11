@@ -55,8 +55,12 @@ public interface DriverExtension {
     }
 
     default boolean isPresent(String locator){
+        return isPresent(locator, 10);
+    }
+
+    default boolean isPresent(String locator, int timeInSeconds){
         try {
-            find(locator).isDisplayed();
+            waitUntil(locator, WaitCondition.presence, timeInSeconds);
             return true;
         } catch (NotFoundException e){
             return false;

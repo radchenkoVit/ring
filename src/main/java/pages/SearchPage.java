@@ -7,20 +7,22 @@ import static utils.WaitCondition.clickable;
 import static utils.WaitCondition.visible;
 
 public class SearchPage extends YouTubePage {
+    private String channelTitle = "//h3[@id='channel-title']/span";
     private String channelButton = "//li/span[contains(text(), 'Channel')][contains(@class,'yt-badge')]";
 
     public SearchPage(){
-       waitPageToLoad();
+        waitPageToLoad();
     }
 
     public MusicianPage goToChannel(){
-        WebElement channel = find(channelButton);
-        waitUntil(channelButton, visible);
+        String channelLocator = isPresent(channelTitle, 3) ? channelTitle : channelButton;
+        WebElement channel = find(channelLocator);
+        waitUntil(channelLocator, visible);
         for (int i = 0; i < 3; i++) {
-            click(channelButton, clickable);
-            if (!isPresent(channelButton)){click(channelButton);}
+            click(channelLocator, clickable);
+            if (!isPresent(channelLocator)){click(channelLocator);}
         }
-        if (waitUntilDisappear(channel)) throw new RuntimeException("Channel button was not clicked"); // TODO: make better, quick fix
+        if(!waitUntilDisappear(channel)) throw new RuntimeException("Not switch to artist channel");
         return new MusicianPage();
     }
 }
