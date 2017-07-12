@@ -30,7 +30,7 @@ public class PreAdVideoTest extends TestRunner {
                 .getVideoTab()
                 .sortBy(SortBy.MostPopular);
 
-        List<String> videoLinks = videoTab.getVideoLinks(3);
+        List<String> videoLinks = videoTab.getVideoLinks(10);
 
         for (String videoLink: videoLinks){
             StreamingPage page = new StreamingPage();
